@@ -4,9 +4,11 @@ export const SCALES = [
     nameEn: 'Miyako-bushi',
     nameJp: '都節',
     intervals: [0, 1, 5, 7, 8],
+    ascending: [0, 1, 4, 5, 7, 8, 11],
+    descending: [0, 1, 3, 5, 7, 8, 10],
     description: {
-      en: 'The urban scale of Edo-period Japan. Dark, haunting quality with two semitone steps. Foundation of koto and shamisen music. Also called the "In" scale.',
-      ru: 'Городская гамма эпохи Эдо. Тёмный, мистический характер с двумя полутоновыми шагами. Основа музыки кото и сямисэна. Также называется гамма «Ин».',
+      en: 'The urban scale of Edo-period Japan. Dark, haunting quality with two semitone steps. Foundation of koto and shamisen music. Also called the "In" scale. The 7-note extended form has different auxiliary passing tones ascending vs descending — sharper tones going up (pulled toward the upper nuclear tone), flatter going down.',
+      ru: 'Городская гамма эпохи Эдо. Тёмный, мистический характер с двумя полутоновыми шагами. Основа музыки кото и сямисэна. Также называется гамма «Ин». Расширенная 7-нотная форма имеет разные проходящие тоны при движении вверх и вниз — повышенные при восхождении, пониженные при нисхождении.',
     },
   },
   {
@@ -44,9 +46,11 @@ export const SCALES = [
     nameEn: 'Yo',
     nameJp: '陽旋',
     intervals: [0, 2, 5, 7, 9],
+    ascending: [0, 2, 4, 5, 7, 9, 11],
+    descending: [0, 2, 3, 5, 7, 9, 10],
     description: {
-      en: 'The "bright" scale — major character without semitones. Found in folk songs, festival music, and min\'yo. Open, cheerful, and uplifting.',
-      ru: 'Гамма «света» — мажорный характер без полутонов. Встречается в народных песнях, праздничной музыке и мин\'ё. Открытая, радостная, бодрая.',
+      en: 'The "bright" scale — major character without semitones. Found in folk songs, festival music, and min\'yo. Open, cheerful, and uplifting. The 7-note extended form (min\'yo scale) also has different passing tones ascending vs descending.',
+      ru: 'Гамма «света» — мажорный характер без полутонов. Встречается в народных песнях, праздничной музыке и мин\'ё. Открытая, радостная, бодрая. Расширенная 7-нотная форма (гамма мин\'ё) также имеет разные проходящие тоны при движении вверх и вниз.',
     },
   },
   {

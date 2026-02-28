@@ -30,6 +30,10 @@ export const TRANSLATIONS = {
 
     scalesTitle: 'Japanese Pentatonic Scales',
     scalesIntervals: 'Intervals (semitones)',
+    scalesPentatonic: 'Pentatonic (5 notes)',
+    scalesAscending: 'Ascending (7 notes)',
+    scalesDescending: 'Descending (7 notes)',
+    scalesAscDescNote: 'Scales marked with ↑↓ have different auxiliary passing tones when ascending vs descending. This comes from Koizumi\'s tetrachord theory: passing tones are pulled sharp going up and flat going down.',
     notesTitle: 'All Notes',
     chartTitle: 'Complete Fingering Chart',
 
@@ -69,6 +73,10 @@ export const TRANSLATIONS = {
 
     scalesTitle: 'Японские пентатоники',
     scalesIntervals: 'Интервалы (полутона)',
+    scalesPentatonic: 'Пентатоника (5 нот)',
+    scalesAscending: 'Восходящая (7 нот)',
+    scalesDescending: 'Нисходящая (7 нот)',
+    scalesAscDescNote: 'Гаммы, отмеченные ↑↓, имеют разные проходящие тоны при движении вверх и вниз. Это из теории тетрахордов Коидзуми: проходящие тоны повышаются при восхождении и понижаются при нисхождении.',
     notesTitle: 'Все ноты',
     chartTitle: 'Полная таблица аппликатуры',
 
