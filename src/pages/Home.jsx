@@ -11,7 +11,7 @@ function LegendCircle({ type }) {
   if (type === 'closed') {
     return (
       <svg width={size} height={size}>
-        <circle cx={cx} cy={cy} r={r} fill="#000" stroke="#000" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r={r} fill="var(--fg)" stroke="var(--fg)" strokeWidth="1.5" />
       </svg>
     );
   }
@@ -19,7 +19,7 @@ function LegendCircle({ type }) {
   if (type === 'open') {
     return (
       <svg width={size} height={size}>
-        <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--fg)" strokeWidth="1.5" />
       </svg>
     );
   }
@@ -32,8 +32,8 @@ function LegendCircle({ type }) {
           <rect x={cx - r} y={cy - r} width={r} height={r * 2} />
         </clipPath>
       </defs>
-      <circle cx={cx} cy={cy} r={r} fill="#000" clipPath={`url(#${clipId})`} />
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="1.5" />
+      <circle cx={cx} cy={cy} r={r} fill="var(--fg)" clipPath={`url(#${clipId})`} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--fg)" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -59,6 +59,8 @@ export default function Home() {
 
       <section className="home-legend">
         <h2>{t('homeLegend')}</h2>
+
+        <h3 className="legend-subtitle">{t('legendHolesTitle')}</h3>
         <div className="legend-items">
           <div className="legend-item">
             <LegendCircle type="closed" />
@@ -71,6 +73,22 @@ export default function Home() {
           <div className="legend-item">
             <LegendCircle type="open" />
             <span>{t('legendOpen')}</span>
+          </div>
+        </div>
+
+        <h3 className="legend-subtitle">{t('legendTechniquesTitle')}</h3>
+        <div className="legend-techniques">
+          <div className="legend-technique-item">
+            <strong>{t('techniqueNormal')}</strong> — {t('legendTechNormalDesc')}
+          </div>
+          <div className="legend-technique-item">
+            <strong>{t('techniqueMeri')}</strong> — {t('legendTechMeriDesc')}
+          </div>
+          <div className="legend-technique-item">
+            <strong>{t('techniqueCross')}</strong> — {t('legendTechCrossDesc')}
+          </div>
+          <div className="legend-technique-item">
+            <strong>{t('techniqueCrossMeri')}</strong> — {t('legendTechCrossMeriDesc')}
           </div>
         </div>
       </section>

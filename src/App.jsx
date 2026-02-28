@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Notes from './pages/Notes';
 import Chart from './pages/Chart';
 import Scales from './pages/Scales';
+import Techniques from './pages/Techniques';
 import './App.css';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="notes" element={<Notes />} />
             <Route path="chart" element={<Chart />} />
             <Route path="scales" element={<Scales />} />
+            <Route path="techniques" element={<Techniques />} />
           </Route>
         </Routes>
       </AppProvider>

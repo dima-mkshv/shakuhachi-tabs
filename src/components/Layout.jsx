@@ -3,7 +3,7 @@ import { useAppContext, useTranslation } from '../context/AppContext';
 import { SHAKUHACHI_SIZES } from '../data/sizes';
 
 export default function Layout() {
-  const { lang, setLang, selectedLength, setSelectedLength, holeCount, setHoleCount } = useAppContext();
+  const { lang, setLang, selectedLength, setSelectedLength, holeCount, setHoleCount, theme, toggleTheme } = useAppContext();
   const t = useTranslation();
 
   return (
@@ -59,6 +59,10 @@ export default function Layout() {
                 RU
               </button>
             </div>
+
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+              {theme === 'light' ? '☽' : '☀'}
+            </button>
           </div>
         </div>
 
@@ -74,6 +78,9 @@ export default function Layout() {
           </NavLink>
           <NavLink to="/scales" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
             {t('navScales')}
+          </NavLink>
+          <NavLink to="/techniques" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+            {t('navTechniques')}
           </NavLink>
         </nav>
       </header>

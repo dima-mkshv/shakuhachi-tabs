@@ -2,11 +2,11 @@ function HoleCircle({ cx, cy, value, r = 6 }) {
   const id = `half-${cx}-${cy}`;
 
   if (value === 1) {
-    return <circle cx={cx} cy={cy} r={r} fill="#000" stroke="#000" strokeWidth="1.5" />;
+    return <circle cx={cx} cy={cy} r={r} fill="var(--fg)" stroke="var(--fg)" strokeWidth="1.5" />;
   }
 
   if (value === 0) {
-    return <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="1.5" />;
+    return <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--fg)" strokeWidth="1.5" />;
   }
 
   return (
@@ -16,8 +16,8 @@ function HoleCircle({ cx, cy, value, r = 6 }) {
           <rect x={cx - r} y={cy - r} width={r} height={r * 2} />
         </clipPath>
       </defs>
-      <circle cx={cx} cy={cy} r={r} fill="#000" clipPath={`url(#${id})`} />
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="1.5" />
+      <circle cx={cx} cy={cy} r={r} fill="var(--fg)" clipPath={`url(#${id})`} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--fg)" strokeWidth="1.5" />
     </>
   );
 }
@@ -36,7 +36,7 @@ export default function FingeringDiagram({ fingering, compact = false }) {
     return (
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="fingering-compact">
         <HoleCircle cx={r} cy={cy} value={fingering[0]} r={r} />
-        <line x1={r * 2 + 2} y1={0} x2={r * 2 + 2} y2={h} stroke="#ccc" strokeWidth="1" />
+        <line x1={r * 2 + 2} y1={0} x2={r * 2 + 2} y2={h} stroke="var(--gray-300)" strokeWidth="1" />
         {fingering.slice(1).map((val, i) => (
           <HoleCircle key={i} cx={gap * (i + 1) + r} cy={cy} value={val} r={r} />
         ))}
@@ -59,9 +59,9 @@ export default function FingeringDiagram({ fingering, compact = false }) {
 
     return (
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="fingering-diagram">
-        <rect x={tubeX} y={8} width={tubeW} height={H - 16} rx={4} fill="#eee" stroke="#000" strokeWidth="1" />
-        <rect x={tubeX + 3} y={5} width={tubeW - 6} height={6} rx={2} fill="#999" />
-        <rect x={tubeX - 1} y={H - 14} width={tubeW + 2} height={8} rx={3} fill="#ccc" />
+        <rect x={tubeX} y={8} width={tubeW} height={H - 16} rx={4} fill="var(--tube-fill)" stroke="var(--fg)" strokeWidth="1" />
+        <rect x={tubeX + 3} y={5} width={tubeW - 6} height={6} rx={2} fill="var(--gray-500)" />
+        <rect x={tubeX - 1} y={H - 14} width={tubeW + 2} height={8} rx={3} fill="var(--gray-300)" />
         <HoleCircle cx={thumbX} cy={thumbY} value={thumb} r={5} />
         {frontVals.map((val, i) => (
           <HoleCircle
@@ -88,9 +88,9 @@ export default function FingeringDiagram({ fingering, compact = false }) {
 
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="fingering-diagram">
-      <rect x={tubeX} y={8} width={tubeW} height={H - 16} rx={4} fill="#eee" stroke="#000" strokeWidth="1" />
-      <rect x={tubeX + 3} y={5} width={tubeW - 6} height={6} rx={2} fill="#999" />
-      <rect x={tubeX - 1} y={H - 14} width={tubeW + 2} height={8} rx={3} fill="#ccc" />
+      <rect x={tubeX} y={8} width={tubeW} height={H - 16} rx={4} fill="var(--tube-fill)" stroke="var(--fg)" strokeWidth="1" />
+      <rect x={tubeX + 3} y={5} width={tubeW - 6} height={6} rx={2} fill="var(--gray-500)" />
+      <rect x={tubeX - 1} y={H - 14} width={tubeW + 2} height={8} rx={3} fill="var(--gray-300)" />
       <HoleCircle cx={thumbX} cy={thumbY} value={thumb} r={5} />
       <HoleCircle cx={cx} cy={holeYs[0]} value={h1} />
       <HoleCircle cx={cx} cy={holeYs[1]} value={h2} />
