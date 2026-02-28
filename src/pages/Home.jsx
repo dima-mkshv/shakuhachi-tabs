@@ -39,7 +39,7 @@ function LegendCircle({ type }) {
 }
 
 export default function Home() {
-  const { rootKey } = useAppContext();
+  const { rootKey, holeCount } = useAppContext();
   const t = useTranslation();
 
   const basicNotes = OTSU_NOTES.filter(
@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div className="page-home">
       <section className="home-intro">
-        <p className="home-intro__text">{t('homeIntro')}</p>
+        <p className="home-intro__text">{t(holeCount === 7 ? 'homeIntro7' : 'homeIntro5')}</p>
         <p className="home-intro__key">
           {t('keyLabel')}: <strong>{rootKey}</strong>
         </p>

@@ -11,15 +11,17 @@ function findSizeByLength(length) {
 export function AppProvider({ children }) {
   const [lang, setLang] = useState(() => localStorage.getItem('shaku-lang') || 'en');
   const [selectedLength, setSelectedLength] = useState(() => localStorage.getItem('shaku-length') || '1.8');
+  const [holeCount, setHoleCount] = useState(() => Number(localStorage.getItem('shaku-holes')) || 5);
 
   useEffect(() => { localStorage.setItem('shaku-lang', lang); }, [lang]);
   useEffect(() => { localStorage.setItem('shaku-length', selectedLength); }, [selectedLength]);
+  useEffect(() => { localStorage.setItem('shaku-holes', String(holeCount)); }, [holeCount]);
 
   const selectedSize = useMemo(() => findSizeByLength(selectedLength), [selectedLength]);
   const rootKey = selectedSize.key;
 
   return (
-    <AppContext.Provider value={{ lang, setLang, rootKey, selectedLength, setSelectedLength, selectedSize }}>
+    <AppContext.Provider value={{ lang, setLang, rootKey, selectedLength, setSelectedLength, selectedSize, holeCount, setHoleCount }}>
       {children}
     </AppContext.Provider>
   );

@@ -3,7 +3,7 @@ import { useAppContext, useTranslation } from '../context/AppContext';
 import { SHAKUHACHI_SIZES } from '../data/sizes';
 
 export default function Layout() {
-  const { lang, setLang, selectedLength, setSelectedLength } = useAppContext();
+  const { lang, setLang, selectedLength, setSelectedLength, holeCount, setHoleCount } = useAppContext();
   const t = useTranslation();
 
   return (
@@ -29,6 +29,19 @@ export default function Layout() {
                     {s.length} {t('lengthLabel')} ({s.key})
                   </option>
                 ))}
+              </select>
+            </div>
+
+            <div className="hole-selector">
+              <label htmlFor="hole-select">{t('holesLabel')}:</label>
+              <select
+                id="hole-select"
+                value={holeCount}
+                onChange={(e) => setHoleCount(Number(e.target.value))}
+                className="key-select"
+              >
+                <option value={5}>5</option>
+                <option value={7}>7</option>
               </select>
             </div>
 

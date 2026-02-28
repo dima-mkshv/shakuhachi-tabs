@@ -7,7 +7,8 @@ export const TRANSLATIONS = {
     navChart: 'Fingering Chart',
     navScales: 'Scales',
 
-    homeIntro: 'Interactive fingering reference for the standard 5-hole shakuhachi.',
+    homeIntro5: 'Interactive fingering reference for the standard 5-hole shakuhachi.',
+    homeIntro7: 'Interactive fingering reference for the 7-hole shakuhachi.',
     homeBasicNotes: 'The Five Basic Notes',
     homeLegend: 'How to Read Diagrams',
 
@@ -27,6 +28,7 @@ export const TRANSLATIONS = {
 
     keyLabel: 'Key',
     lengthLabel: 'shaku',
+    holesLabel: 'Holes',
 
     scalesTitle: 'Japanese Pentatonic Scales',
     scalesIntervals: 'Intervals (semitones)',
@@ -50,7 +52,8 @@ export const TRANSLATIONS = {
     navChart: 'Аппликатура',
     navScales: 'Гаммы',
 
-    homeIntro: 'Интерактивный справочник аппликатуры для стандартной 5-дырочной сякухати.',
+    homeIntro5: 'Интерактивный справочник аппликатуры для стандартной 5-дырочной сякухати.',
+    homeIntro7: 'Интерактивный справочник аппликатуры для 7-дырочной сякухати.',
     homeBasicNotes: 'Пять основных нот',
     homeLegend: 'Как читать диаграммы',
 
@@ -70,6 +73,7 @@ export const TRANSLATIONS = {
 
     keyLabel: 'Тональность',
     lengthLabel: 'сяку',
+    holesLabel: 'Дырки',
 
     scalesTitle: 'Японские пентатоники',
     scalesIntervals: 'Интервалы (полутона)',

@@ -77,14 +77,16 @@ body {
   gap: 16px;
 }
 
-.key-selector {
+.key-selector,
+.hole-selector {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 13px;
 }
 
-.key-selector label {
+.key-selector label,
+.hole-selector label {
   color: var(--gray-500);
   white-space: nowrap;
 }
@@ -290,6 +292,12 @@ body {
 .note-card--compact .note-card__katakana {
   font-size: 13px;
   margin-top: 2px;
+}
+
+.note-card__romaji-compact {
+  font-size: 10px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
 }
 
 /* === Register tabs === */
