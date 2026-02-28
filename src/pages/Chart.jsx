@@ -1,6 +1,7 @@
 import { useAppContext, useTranslation } from '../context/AppContext';
 import { OTSU_NOTES, KAN_NOTES, getFingeringForHoles, getTechniqueForHoles } from '../data/notes';
 import { getNoteWithOctave } from '../utils/transpose';
+import { playNote } from '../utils/audio';
 import FingeringDiagram from '../components/FingeringDiagram';
 
 const TECHNIQUE_KEYS = {
@@ -39,6 +40,9 @@ function ChartTable({ notes, registerLabel, rootKey, holeCount, t }) {
                   <FingeringDiagram fingering={fingering} compact />
                 </td>
                 <td className="chart-cell--technique">{t(TECHNIQUE_KEYS[technique])}</td>
+                <td className="chart-cell--play">
+                  <button className="play-btn" onClick={() => playNote(note.semitoneOffset, rootKey)} aria-label="Play">▶</button>
+                </td>
               </tr>
             );
           })}

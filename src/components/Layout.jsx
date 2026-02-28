@@ -82,6 +82,9 @@ export default function Layout() {
           <NavLink to="/techniques" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
             {t('navTechniques')}
           </NavLink>
+          <NavLink to="/glossary" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+            {t('navGlossary')}
+          </NavLink>
         </nav>
       </header>
 

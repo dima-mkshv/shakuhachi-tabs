@@ -7,6 +7,7 @@ export const TRANSLATIONS = {
     navChart: 'Fingering Chart',
     navScales: 'Scales',
     navTechniques: 'Techniques',
+    navGlossary: 'Glossary',
 
     homeIntro5: 'Interactive fingering reference for the standard 5-hole shakuhachi.',
     homeIntro7: 'Interactive fingering reference for the 7-hole shakuhachi.',
@@ -71,6 +72,10 @@ export const TRANSLATIONS = {
 
     techBreathTitle: 'Breath & Embouchure',
     techBreathText: 'Sound on the shakuhachi is produced by directing an air stream across the utaguchi (blowing edge). Unlike a recorder, the shakuhachi has no built-in mouthpiece — the player must find and maintain the correct angle. Small changes in lip tension, jaw position, and breath pressure all affect pitch, volume, and timbre. This sensitivity is what makes the shakuhachi both challenging and extraordinarily expressive.',
+
+    glossaryTitle: 'Glossary',
+    glossaryIntro: 'Key terms and concepts in shakuhachi music and practice.',
+    playNote: 'Play note',
   },
   ru: {
     siteTitle: 'Аппликатура сякухати',
@@ -80,6 +85,7 @@ export const TRANSLATIONS = {
     navChart: 'Аппликатура',
     navScales: 'Гаммы',
     navTechniques: 'Техники',
+    navGlossary: 'Словарь',
 
     homeIntro5: 'Интерактивный справочник аппликатуры для стандартной 5-дырочной сякухати.',
     homeIntro7: 'Интерактивный справочник аппликатуры для 7-дырочной сякухати.',
@@ -144,5 +150,9 @@ export const TRANSLATIONS = {
 
     techBreathTitle: 'Дыхание и амбушюр',
     techBreathText: 'Звук сякухати извлекается направлением воздушной струи через утагути (край дульца). В отличие от блокфлейты, у сякухати нет мундштука — игрок сам находит и удерживает нужный угол. Малейшие изменения в напряжении губ, положении челюсти и давлении воздуха влияют на высоту, громкость и тембр. Эта чувствительность делает сякухати одновременно сложным и необыкновенно выразительным инструментом.',
+
+    glossaryTitle: 'Словарь',
+    glossaryIntro: 'Основные термины и понятия музыки и практики сякухати.',
+    playNote: 'Воспроизвести ноту',
   },
 };

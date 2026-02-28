@@ -306,6 +306,23 @@ body {
   margin-top: 2px;
 }
 
+.note-card__play {
+  font-size: 10px;
+  background: none;
+  border: 1px solid var(--gray-300);
+  color: var(--gray-500);
+  padding: 3px 10px;
+  cursor: pointer;
+  margin-top: 4px;
+  border-radius: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.note-card__play:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
 /* Compact variant */
 .note-card--compact {
   flex-direction: column;
@@ -313,6 +330,7 @@ body {
   gap: 4px;
   border: 1px solid var(--gray-200);
   min-width: 60px;
+  cursor: pointer;
 }
 
 .note-card--compact .note-card__western {
@@ -440,6 +458,27 @@ body {
   color: var(--gray-500);
 }
 
+.chart-cell--play {
+  width: 36px;
+  text-align: center;
+}
+
+.play-btn {
+  font-size: 10px;
+  background: none;
+  border: 1px solid var(--gray-300);
+  color: var(--gray-500);
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.play-btn:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
 /* === Scales === */
 .scales-grid {
   display: grid;
@@ -534,6 +573,75 @@ body {
   margin-bottom: 24px;
   padding: 12px 16px;
   border-left: 3px solid var(--gray-300);
+}
+
+/* === Glossary === */
+.page-glossary h2 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.glossary-intro {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 32px;
+}
+
+.glossary-section {
+  margin-bottom: 32px;
+}
+
+.glossary-section__title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gray-300);
+  margin-bottom: 16px;
+}
+
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.glossary-entry {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.glossary-entry__term {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.glossary-entry__jp {
+  font-family: var(--font-jp);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.glossary-entry__romaji {
+  font-size: 12px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+}
+
+.glossary-entry__def {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.7;
 }
 
 /* === Legend techniques === */
@@ -636,6 +744,14 @@ body {
 
   .scales-grid {
     grid-template-columns: 1fr;
+  }
+
+  .glossary-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-wrap: wrap;
   }
 
   .chart-table {
