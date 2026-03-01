@@ -1,5 +1,17 @@
 export const SCALES = [
   {
+    id: 'yo',
+    nameEn: 'Yo',
+    nameJp: '陽旋',
+    intervals: [0, 2, 5, 7, 9],
+    ascending: [0, 2, 4, 5, 7, 9, 11],
+    descending: [0, 2, 3, 5, 7, 9, 10],
+    description: {
+      en: 'The "bright" scale — major character without semitones. Found in folk songs, festival music, and min\'yo. Open, cheerful, and uplifting. The 7-note extended form (min\'yo scale) also has different passing tones ascending vs descending.',
+      ru: 'Гамма «света» — мажорный характер без полутонов. Встречается в народных песнях, праздничной музыке и мин\'ё. Открытая, радостная, бодрая. Расширенная 7-нотная форма (гамма мин\'ё) также имеет разные проходящие тоны при движении вверх и вниз.',
+    },
+  },
+  {
     id: 'miyako_bushi',
     nameEn: 'Miyako-bushi',
     nameJp: '都節',
@@ -39,18 +51,6 @@ export const SCALES = [
     description: {
       en: 'Named after the heavenly cave of Amaterasu. The darkest Japanese scale — two semitone steps create tension and mystery. Used in ceremonial and sacred music.',
       ru: 'Названа в честь небесной пещеры Аматэрасу. Самая тёмная японская гамма — два полутоновых шага создают напряжение и загадочность. Используется в церемониальной музыке.',
-    },
-  },
-  {
-    id: 'yo',
-    nameEn: 'Yo',
-    nameJp: '陽旋',
-    intervals: [0, 2, 5, 7, 9],
-    ascending: [0, 2, 4, 5, 7, 9, 11],
-    descending: [0, 2, 3, 5, 7, 9, 10],
-    description: {
-      en: 'The "bright" scale — major character without semitones. Found in folk songs, festival music, and min\'yo. Open, cheerful, and uplifting. The 7-note extended form (min\'yo scale) also has different passing tones ascending vs descending.',
-      ru: 'Гамма «света» — мажорный характер без полутонов. Встречается в народных песнях, праздничной музыке и мин\'ё. Открытая, радостная, бодрая. Расширенная 7-нотная форма (гамма мин\'ё) также имеет разные проходящие тоны при движении вверх и вниз.',
     },
   },
   {

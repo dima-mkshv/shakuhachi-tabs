@@ -602,12 +602,16 @@ body {
 }
 
 .scale-card__row-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--gray-500);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.scale-card__row + .scale-card__row {
+  margin-top: 20px;
 }
 
 .scale-card__asc-desc-badge {
