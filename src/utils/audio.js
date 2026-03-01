@@ -1,5 +1,3 @@
-const NOTE_NAMES = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
-
 const ROOT_MIDI = {
   'C': 60, 'C#': 61, 'D': 62, 'Eb': 63, 'E': 64, 'F': 65,
   'F#': 66, 'G': 67, 'Ab': 68, 'A': 69, 'Bb': 70, 'B': 71,
@@ -35,23 +33,22 @@ export function playNote(semitoneOffset, rootKey, duration = 0.8) {
   master.connect(ctx.destination);
 
   const harmonics = [
-    { ratio: 1, gain: 1.0, type: 'sine' },
-    { ratio: 2, gain: 0.25, type: 'sine' },
-    { ratio: 3, gain: 0.08, type: 'sine' },
-    { ratio: 4, gain: 0.03, type: 'sine' },
+    { ratio: 1, gain: 1.0 },
+    { ratio: 2, gain: 0.25 },
+    { ratio: 3, gain: 0.08 },
+    { ratio: 4, gain: 0.03 },
   ];
 
-  const oscillators = harmonics.map((h) => {
+  harmonics.forEach((h) => {
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    osc.type = h.type;
+    osc.type = 'sine';
     osc.frequency.setValueAtTime(freq * h.ratio, now);
     gain.gain.setValueAtTime(h.gain * 0.5, now);
     osc.connect(gain);
     gain.connect(master);
     osc.start(now);
     osc.stop(now + duration + 0.05);
-    return osc;
   });
 
   const noiseGain = ctx.createGain();
@@ -80,8 +77,6 @@ export function playNote(semitoneOffset, rootKey, duration = 0.8) {
   noiseGain.connect(master);
   noise.start(now);
   noise.stop(now + duration + 0.05);
-
-  return { oscillators, noise, master };
 }
 
 let droneState = null;
@@ -126,10 +121,6 @@ export function toggleDrone(semitoneOffset, rootKey) {
   return true;
 }
 
-export function isDroning() {
-  return droneState !== null;
-}
-
 export function stopDrone() {
   if (!droneState) return;
   const { oscillators, master, ctx } = droneState;
@@ -137,4 +128,45 @@ export function stopDrone() {
   master.gain.linearRampToValueAtTime(0, now + 0.15);
   oscillators.forEach((osc) => osc.stop(now + 0.2));
   droneState = null;
+}
+
+let sequenceState = null;
+
+export function playSequence(notes, rootKey, bpm, onNoteChange) {
+  stopSequence();
+  const beatDuration = 60 / bpm;
+  const state = { cancelled: false };
+  sequenceState = state;
+
+  let index = 0;
+
+  function playNext() {
+    if (state.cancelled || index >= notes.length) {
+      if (onNoteChange) onNoteChange(-1);
+      sequenceState = null;
+      return;
+    }
+    const note = notes[index];
+    const duration = note.beats * beatDuration;
+    if (onNoteChange) onNoteChange(index);
+
+    if (note.rest) {
+      index++;
+      setTimeout(playNext, duration * 1000);
+      return;
+    }
+
+    playNote(note.offset, rootKey, duration * 0.9);
+    index++;
+    setTimeout(playNext, duration * 1000);
+  }
+
+  playNext();
+}
+
+export function stopSequence() {
+  if (sequenceState) {
+    sequenceState.cancelled = true;
+    sequenceState = null;
+  }
 }

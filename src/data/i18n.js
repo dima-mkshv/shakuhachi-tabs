@@ -76,8 +76,27 @@ export const TRANSLATIONS = {
     glossaryTitle: 'Glossary',
     glossaryIntro: 'Key terms and concepts in shakuhachi music and practice.',
     playNote: 'Play note',
-    loopNote: 'Loop note',
-    altFingering: 'Alternative fingering',
+
+    navTuner: 'Tuner',
+    navExercises: 'Exercises',
+    navOrnaments: 'Ornaments',
+    navSongs: 'Songs',
+
+    tunerTitle: 'Tuner / Drone',
+    tunerIntro: 'Click a note to start a continuous drone tone for tuning and pitch reference. Click again to stop.',
+
+    exercisesTitle: 'Exercises',
+    exercisesIntro: 'Fundamental practice routines for building shakuhachi technique. Start with Ro-buki and work your way through. Click ▶ to hear the exercise.',
+
+    ornamentsTitle: 'Ornaments',
+    ornamentsIntro: 'Decorative techniques that give shakuhachi its expressive character. Each pattern shows the basic movement — in practice, speed and intensity vary by musical context.',
+
+    songsTitle: 'Songs & Pieces',
+    songsIntro: 'Simple melodies to practice. Use the view toggle to switch between notation styles.',
+
+    viewMode_cards: 'Cards',
+    viewMode_tab: 'Text',
+    viewMode_hybrid: 'Timeline',
   },
   ru: {
     siteTitle: 'Гид по сякухати',
@@ -156,7 +175,26 @@ export const TRANSLATIONS = {
     glossaryTitle: 'Словарь',
     glossaryIntro: 'Основные термины и понятия музыки и практики сякухати.',
     playNote: 'Воспроизвести ноту',
-    loopNote: 'Зациклить ноту',
-    altFingering: 'Альтернативная аппликатура',
+
+    navTuner: 'Тюнер',
+    navExercises: 'Упражнения',
+    navOrnaments: 'Орнаменты',
+    navSongs: 'Пьесы',
+
+    tunerTitle: 'Тюнер / Дрон',
+    tunerIntro: 'Нажмите на ноту, чтобы включить непрерывный тон для настройки и проверки высоты. Нажмите ещё раз, чтобы остановить.',
+
+    exercisesTitle: 'Упражнения',
+    exercisesIntro: 'Фундаментальные упражнения для развития техники сякухати. Начните с Ро-буки. Нажмите ▶, чтобы услышать упражнение.',
+
+    ornamentsTitle: 'Орнаменты',
+    ornamentsIntro: 'Декоративные приёмы, придающие сякухати выразительный характер. Каждый паттерн показывает базовое движение — на практике скорость и интенсивность зависят от музыкального контекста.',
+
+    songsTitle: 'Пьесы и мелодии',
+    songsIntro: 'Простые мелодии для практики. Переключайте вид нотации кнопками.',
+
+    viewMode_cards: 'Карточки',
+    viewMode_tab: 'Текст',
+    viewMode_hybrid: 'Таймлайн',
   },
 };

@@ -782,6 +782,313 @@ body {
   line-height: 1.8;
 }
 
+/* === Tuner === */
+.page-tuner h2 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.tuner-intro {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 32px;
+}
+
+.tuner-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin: 24px 0 12px;
+}
+
+.tuner-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tuner-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  border: 2px solid var(--gray-300);
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  min-width: 70px;
+  transition: border-color 0.15s, background 0.15s;
+  border-radius: 2px;
+}
+
+.tuner-note:hover {
+  border-color: var(--black);
+}
+
+.tuner-note--active {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+
+.tuner-note--active .tuner-note__romaji,
+.tuner-note--active .tuner-note__western {
+  color: var(--white);
+}
+
+.tuner-note__western {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tuner-note__katakana {
+  font-family: var(--font-jp);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tuner-note__romaji {
+  font-size: 10px;
+  color: var(--gray-500);
+}
+
+/* === Exercises / Ornaments === */
+.page-exercises h2,
+.page-ornaments h2,
+.page-songs h2 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.exercises-intro,
+.ornaments-intro,
+.songs-intro {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 32px;
+}
+
+.exercises-list,
+.ornaments-list,
+.songs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+}
+
+.exercise-card,
+.ornament-card,
+.song-card {
+  border: 1px solid var(--gray-300);
+  padding: 20px;
+  transition: border-color 0.15s;
+}
+
+.exercise-card:hover,
+.ornament-card:hover,
+.song-card:hover {
+  border-color: var(--black);
+}
+
+.exercise-card__title,
+.ornament-card__title,
+.song-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.exercise-card__jp,
+.ornament-card__jp,
+.song-card__jp {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-left: 6px;
+}
+
+.exercise-card__desc,
+.ornament-card__desc,
+.song-card__desc {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* === Sequence Player === */
+.seq-player {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.seq-play-btn {
+  font-size: 14px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.seq-play-btn:hover {
+  border-color: var(--black);
+}
+
+.seq-play-btn--active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.seq-cards {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.seq-rest {
+  font-size: 18px;
+  color: var(--gray-300);
+  padding: 0 4px;
+}
+
+.seq-rest--active {
+  color: var(--black);
+}
+
+.note-card--highlight {
+  border-color: var(--black) !important;
+  box-shadow: 0 0 0 2px var(--black);
+}
+
+/* Tab view */
+.seq-tab {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.seq-tab__note {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 2px;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+
+.seq-tab__note:hover {
+  background: var(--gray-200);
+}
+
+.seq-tab__rest {
+  color: var(--gray-300);
+  padding: 2px 2px;
+}
+
+.seq-tab--active {
+  background: var(--black) !important;
+  color: var(--white);
+  border-radius: 2px;
+}
+
+/* Hybrid / timeline view */
+.seq-hybrid {
+  display: flex;
+  gap: 2px;
+  align-items: stretch;
+  min-height: 70px;
+  flex: 1;
+}
+
+.seq-hybrid__note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 1px solid var(--gray-200);
+  padding: 4px 2px;
+  cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.seq-hybrid__note:hover {
+  border-color: var(--black);
+}
+
+.seq-hybrid--active {
+  border-color: var(--black) !important;
+  box-shadow: 0 0 0 2px var(--black);
+}
+
+.seq-hybrid__rest {
+  background: var(--gray-100);
+  border-radius: 2px;
+}
+
+.seq-hybrid__western {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.seq-hybrid__katakana {
+  font-family: var(--font-jp);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* === Songs view toggle === */
+.view-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.song-phrases {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.song-phrase {
+  padding-left: 0;
+}
+
 /* === Responsive === */
 @media (max-width: 768px) {
   .layout-header {

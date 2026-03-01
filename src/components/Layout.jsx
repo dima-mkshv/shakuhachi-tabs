@@ -2,6 +2,14 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { useAppContext, useTranslation } from '../context/AppContext';
 import { SHAKUHACHI_SIZES } from '../data/sizes';
 
+function NavItem({ to, label, end }) {
+  return (
+    <NavLink to={to} end={end} className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+      {label}
+    </NavLink>
+  );
+}
+
 export default function Layout() {
   const { lang, setLang, selectedLength, setSelectedLength, holeCount, setHoleCount, theme, toggleTheme } = useAppContext();
   const t = useTranslation();
@@ -46,18 +54,8 @@ export default function Layout() {
             </div>
 
             <div className="lang-toggle">
-              <button
-                className={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`}
-                onClick={() => setLang('en')}
-              >
-                EN
-              </button>
-              <button
-                className={`lang-btn ${lang === 'ru' ? 'lang-btn--active' : ''}`}
-                onClick={() => setLang('ru')}
-              >
-                RU
-              </button>
+              <button className={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} onClick={() => setLang('en')}>EN</button>
+              <button className={`lang-btn ${lang === 'ru' ? 'lang-btn--active' : ''}`} onClick={() => setLang('ru')}>RU</button>
             </div>
 
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
@@ -67,24 +65,16 @@ export default function Layout() {
         </div>
 
         <nav className="nav">
-          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navHome')}
-          </NavLink>
-          <NavLink to="/notes" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navNotes')}
-          </NavLink>
-          <NavLink to="/chart" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navChart')}
-          </NavLink>
-          <NavLink to="/scales" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navScales')}
-          </NavLink>
-          <NavLink to="/techniques" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navTechniques')}
-          </NavLink>
-          <NavLink to="/glossary" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
-            {t('navGlossary')}
-          </NavLink>
+          <NavItem to="/" label={t('navHome')} end />
+          <NavItem to="/notes" label={t('navNotes')} />
+          <NavItem to="/chart" label={t('navChart')} />
+          <NavItem to="/scales" label={t('navScales')} />
+          <NavItem to="/exercises" label={t('navExercises')} />
+          <NavItem to="/ornaments" label={t('navOrnaments')} />
+          <NavItem to="/songs" label={t('navSongs')} />
+          <NavItem to="/tuner" label={t('navTuner')} />
+          <NavItem to="/techniques" label={t('navTechniques')} />
+          <NavItem to="/glossary" label={t('navGlossary')} />
         </nav>
       </header>
 

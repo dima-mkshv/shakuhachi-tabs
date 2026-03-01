@@ -5,6 +5,10 @@ import Home from './pages/Home';
 import Notes from './pages/Notes';
 import Chart from './pages/Chart';
 import Scales from './pages/Scales';
+import Exercises from './pages/Exercises';
+import Ornaments from './pages/Ornaments';
+import Songs from './pages/Songs';
+import Tuner from './pages/Tuner';
 import Techniques from './pages/Techniques';
 import Glossary from './pages/Glossary';
 import './App.css';
@@ -19,6 +23,10 @@ export default function App() {
             <Route path="notes" element={<Notes />} />
             <Route path="chart" element={<Chart />} />
             <Route path="scales" element={<Scales />} />
+            <Route path="exercises" element={<Exercises />} />
+            <Route path="ornaments" element={<Ornaments />} />
+            <Route path="songs" element={<Songs />} />
+            <Route path="tuner" element={<Tuner />} />
             <Route path="techniques" element={<Techniques />} />
             <Route path="glossary" element={<Glossary />} />
           </Route>
