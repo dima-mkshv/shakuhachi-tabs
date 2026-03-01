@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useAppContext, useTranslation } from '../context/AppContext';
 import { OTSU_NOTES, KAN_NOTES, getFingeringForHoles, getTechniqueForHoles } from '../data/notes';
 import { getNoteWithOctave } from '../utils/transpose';
-import { playNote } from '../utils/audio';
+import { playNote, toggleLoop, stopLoop } from '../utils/audio';
 import FingeringDiagram from '../components/FingeringDiagram';
 
 const TECHNIQUE_KEYS = {
@@ -10,6 +11,54 @@ const TECHNIQUE_KEYS = {
   cross: 'techniqueCross',
   cross_meri: 'techniqueCrossMeri',
 };
+
+function ChartRow({ note, rootKey, holeCount, t }) {
+  const [looping, setLooping] = useState(false);
+  useEffect(() => { return () => { if (looping) stopLoop(); }; }, [looping]);
+
+  const noteInfo = getNoteWithOctave(note.semitoneOffset, rootKey, 4);
+  const fingering = getFingeringForHoles(note, holeCount);
+  const technique = getTechniqueForHoles(note, holeCount);
+  const showAlts = holeCount === 5 && note.altFingerings && note.altFingerings.length > 0;
+
+  const handleLoop = () => {
+    const isNowLooping = toggleLoop(note.semitoneOffset, rootKey);
+    setLooping(isNowLooping);
+  };
+
+  return (
+    <>
+      <tr className={technique !== 'normal' ? 'chart-row--alt' : ''}>
+        <td className="chart-cell--note">{noteInfo.display}</td>
+        <td className="chart-cell--jp">
+          <span className="chart-katakana">{note.katakana}</span>
+          <span className="chart-romaji">{note.romaji}</span>
+        </td>
+        <td className="chart-cell--fingering">
+          <FingeringDiagram fingering={fingering} compact />
+        </td>
+        <td className="chart-cell--technique">{t(TECHNIQUE_KEYS[technique])}</td>
+        <td className="chart-cell--play">
+          <button className="play-btn" onClick={() => { if (looping) { stopLoop(); setLooping(false); } playNote(note.semitoneOffset, rootKey); }} aria-label="Play">▶</button>
+          <button className={`play-btn ${looping ? 'play-btn--active' : ''}`} onClick={handleLoop} aria-label="Loop">
+            {looping ? '■' : '⟳'}
+          </button>
+        </td>
+      </tr>
+      {showAlts && note.altFingerings.map((alt, i) => (
+        <tr key={`alt-${i}`} className="chart-row--variant">
+          <td className="chart-cell--note"></td>
+          <td className="chart-cell--jp"><span className="chart-alt-label">alt</span></td>
+          <td className="chart-cell--fingering">
+            <FingeringDiagram fingering={alt.fingering} compact />
+          </td>
+          <td className="chart-cell--technique">{t(TECHNIQUE_KEYS[alt.technique])}</td>
+          <td className="chart-cell--play"></td>
+        </tr>
+      ))}
+    </>
+  );
+}
 
 function ChartTable({ notes, registerLabel, rootKey, holeCount, t }) {
   return (
@@ -22,30 +71,13 @@ function ChartTable({ notes, registerLabel, rootKey, holeCount, t }) {
             <th>{t('japaneseColumn')}</th>
             <th>{t('fingeringColumn')}</th>
             <th>{t('techniqueColumn')}</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {notes.map((note) => {
-            const noteInfo = getNoteWithOctave(note.semitoneOffset, rootKey, 4);
-            const fingering = getFingeringForHoles(note, holeCount);
-            const technique = getTechniqueForHoles(note, holeCount);
-            return (
-              <tr key={note.semitoneOffset} className={technique !== 'normal' ? 'chart-row--alt' : ''}>
-                <td className="chart-cell--note">{noteInfo.display}</td>
-                <td className="chart-cell--jp">
-                  <span className="chart-katakana">{note.katakana}</span>
-                  <span className="chart-romaji">{note.romaji}</span>
-                </td>
-                <td className="chart-cell--fingering">
-                  <FingeringDiagram fingering={fingering} compact />
-                </td>
-                <td className="chart-cell--technique">{t(TECHNIQUE_KEYS[technique])}</td>
-                <td className="chart-cell--play">
-                  <button className="play-btn" onClick={() => playNote(note.semitoneOffset, rootKey)} aria-label="Play">▶</button>
-                </td>
-              </tr>
-            );
-          })}
+          {notes.map((note) => (
+            <ChartRow key={note.semitoneOffset} note={note} rootKey={rootKey} holeCount={holeCount} t={t} />
+          ))}
         </tbody>
       </table>
     </div>

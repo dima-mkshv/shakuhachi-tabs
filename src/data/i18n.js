@@ -1,6 +1,6 @@
 export const TRANSLATIONS = {
   en: {
-    siteTitle: 'Shakuhachi Fingering Guide',
+    siteTitle: 'Shakuhachi Guide',
     siteSubtitle: '尺八',
     navHome: 'Home',
     navNotes: 'Notes',
@@ -76,9 +76,11 @@ export const TRANSLATIONS = {
     glossaryTitle: 'Glossary',
     glossaryIntro: 'Key terms and concepts in shakuhachi music and practice.',
     playNote: 'Play note',
+    loopNote: 'Loop note',
+    altFingering: 'Alternative fingering',
   },
   ru: {
-    siteTitle: 'Аппликатура сякухати',
+    siteTitle: 'Гид по сякухати',
     siteSubtitle: '尺八',
     navHome: 'Главная',
     navNotes: 'Ноты',
@@ -154,5 +156,7 @@ export const TRANSLATIONS = {
     glossaryTitle: 'Словарь',
     glossaryIntro: 'Основные термины и понятия музыки и практики сякухати.',
     playNote: 'Воспроизвести ноту',
+    loopNote: 'Зациклить ноту',
+    altFingering: 'Альтернативная аппликатура',
   },
 };

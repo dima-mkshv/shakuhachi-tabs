@@ -96,7 +96,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .key-selector label,
@@ -107,19 +107,21 @@ body {
 
 .key-select {
   font-family: var(--font-ui);
-  font-size: 13px;
-  padding: 4px 8px;
+  font-size: 14px;
+  padding: 6px 10px;
   border: 1px solid var(--black);
   background: var(--white);
   color: var(--black);
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .theme-toggle {
-  font-size: 18px;
+  font-size: 22px;
   background: none;
   border: 1px solid var(--black);
-  padding: 2px 8px;
+  color: var(--black);
+  padding: 4px 10px;
   cursor: pointer;
   line-height: 1;
   border-radius: 2px;
@@ -133,15 +135,17 @@ body {
 .lang-toggle {
   display: flex;
   border: 1px solid var(--black);
+  border-radius: 2px;
 }
 
 .lang-btn {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 6px 14px;
   border: none;
   background: var(--white);
+  color: var(--black);
   cursor: pointer;
   letter-spacing: 1px;
   transition: background 0.15s, color 0.15s;
@@ -306,6 +310,12 @@ body {
   margin-top: 2px;
 }
 
+.note-card__buttons {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
 .note-card__play {
   font-size: 10px;
   background: none;
@@ -313,7 +323,6 @@ body {
   color: var(--gray-500);
   padding: 3px 10px;
   cursor: pointer;
-  margin-top: 4px;
   border-radius: 2px;
   transition: color 0.15s, border-color 0.15s;
 }
@@ -321,6 +330,34 @@ body {
 .note-card__play:hover {
   color: var(--black);
   border-color: var(--black);
+}
+
+.note-card__play--active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.note-card__alts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.note-card__alt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.6;
+}
+
+.note-card__alt-label {
+  font-size: 9px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 /* Compact variant */
@@ -459,8 +496,24 @@ body {
 }
 
 .chart-cell--play {
-  width: 36px;
-  text-align: center;
+  white-space: nowrap;
+}
+
+.chart-row--variant {
+  opacity: 0.6;
+}
+
+.chart-row--variant td {
+  border-bottom: 1px dashed var(--gray-300);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.chart-alt-label {
+  font-size: 10px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .play-btn {
@@ -472,10 +525,17 @@ body {
   cursor: pointer;
   border-radius: 2px;
   transition: color 0.15s, border-color 0.15s;
+  margin-right: 2px;
 }
 
 .play-btn:hover {
   color: var(--black);
+  border-color: var(--black);
+}
+
+.play-btn--active {
+  background: var(--black);
+  color: var(--white);
   border-color: var(--black);
 }
 
@@ -636,6 +696,12 @@ body {
   font-size: 12px;
   color: var(--gray-500);
   letter-spacing: 0.5px;
+}
+
+.glossary-entry__literal {
+  font-size: 11px;
+  color: var(--gray-500);
+  font-style: italic;
 }
 
 .glossary-entry__def {

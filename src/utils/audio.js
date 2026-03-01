@@ -83,3 +83,37 @@ export function playNote(semitoneOffset, rootKey, duration = 0.8) {
 
   return { oscillators, noise, master };
 }
+
+let loopState = null;
+
+export function toggleLoop(semitoneOffset, rootKey) {
+  if (loopState) {
+    const wasSameNote = loopState.semitoneOffset === semitoneOffset && loopState.rootKey === rootKey;
+    loopState.stop = true;
+    loopState = null;
+    if (wasSameNote) return false;
+  }
+
+  const state = { stop: false, semitoneOffset, rootKey };
+  loopState = state;
+
+  function scheduleNext() {
+    if (state.stop) return;
+    playNote(semitoneOffset, rootKey, 1.5);
+    setTimeout(() => scheduleNext(), 1600);
+  }
+
+  scheduleNext();
+  return true;
+}
+
+export function isLooping() {
+  return loopState !== null;
+}
+
+export function stopLoop() {
+  if (loopState) {
+    loopState.stop = true;
+    loopState = null;
+  }
+}

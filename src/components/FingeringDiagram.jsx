@@ -36,7 +36,7 @@ export default function FingeringDiagram({ fingering, compact = false }) {
     return (
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="fingering-compact">
         <HoleCircle cx={r} cy={cy} value={fingering[0]} r={r} />
-        <line x1={r * 2 + 2} y1={0} x2={r * 2 + 2} y2={h} stroke="var(--gray-300)" strokeWidth="1" />
+        <line x1={r * 2 + 2} y1={0} x2={r * 2 + 2} y2={h} stroke="var(--fg)" strokeWidth="1" opacity="0.35" />
         {fingering.slice(1).map((val, i) => (
           <HoleCircle key={i} cx={gap * (i + 1) + r} cy={cy} value={val} r={r} />
         ))}

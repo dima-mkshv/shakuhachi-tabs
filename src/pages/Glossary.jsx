@@ -24,6 +24,9 @@ export default function Glossary() {
                   <dt className="glossary-entry__term">
                     <span className="glossary-entry__jp">{entry.term}</span>
                     <span className="glossary-entry__romaji">{entry.romaji}</span>
+                    {entry.literal && (
+                      <span className="glossary-entry__literal">{entry.literal[lang]}</span>
+                    )}
                   </dt>
                   <dd className="glossary-entry__def">{entry[lang]}</dd>
                 </div>

@@ -1,12 +1,10 @@
 import { useTranslation } from '../context/AppContext';
 
 const SECTIONS = [
-  { titleKey: 'techNormalTitle', textKey: 'techNormalText' },
   { titleKey: 'techMeriTitle', textKey: 'techMeriText' },
   { titleKey: 'techKariTitle', textKey: 'techKariText' },
   { titleKey: 'techCrossTitle', textKey: 'techCrossText' },
   { titleKey: 'techRegistersTitle', textKey: 'techRegistersText' },
-  { titleKey: 'techBreathTitle', textKey: 'techBreathText' },
 ];
 
 export default function Techniques() {
