@@ -363,10 +363,10 @@ body {
 /* Compact variant */
 .note-card--compact {
   flex-direction: column;
-  padding: 8px;
-  gap: 4px;
+  padding: 6px 4px;
+  gap: 3px;
   border: 1px solid var(--gray-200);
-  min-width: 60px;
+  min-width: 54px;
   cursor: pointer;
 }
 
@@ -548,7 +548,7 @@ body {
 
 .scale-card {
   border: 1px solid var(--gray-300);
-  padding: 24px;
+  padding: 20px;
   transition: border-color 0.15s;
 }
 
@@ -583,7 +583,7 @@ body {
 
 .scale-card__notes {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   margin-bottom: 16px;
 }

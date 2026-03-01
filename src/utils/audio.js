@@ -84,36 +84,57 @@ export function playNote(semitoneOffset, rootKey, duration = 0.8) {
   return { oscillators, noise, master };
 }
 
-let loopState = null;
+let droneState = null;
 
-export function toggleLoop(semitoneOffset, rootKey) {
-  if (loopState) {
-    const wasSameNote = loopState.semitoneOffset === semitoneOffset && loopState.rootKey === rootKey;
-    loopState.stop = true;
-    loopState = null;
+export function toggleDrone(semitoneOffset, rootKey) {
+  if (droneState) {
+    const wasSameNote = droneState.semitoneOffset === semitoneOffset && droneState.rootKey === rootKey;
+    stopDrone();
     if (wasSameNote) return false;
   }
 
-  const state = { stop: false, semitoneOffset, rootKey };
-  loopState = state;
+  const ctx = getAudioContext();
+  const midi = ROOT_MIDI[rootKey] + semitoneOffset;
+  const freq = midiToFrequency(midi);
+  const now = ctx.currentTime;
 
-  function scheduleNext() {
-    if (state.stop) return;
-    playNote(semitoneOffset, rootKey, 1.5);
-    setTimeout(() => scheduleNext(), 1600);
-  }
+  const master = ctx.createGain();
+  master.gain.setValueAtTime(0, now);
+  master.gain.linearRampToValueAtTime(0.3, now + 0.08);
+  master.connect(ctx.destination);
 
-  scheduleNext();
+  const harmonics = [
+    { ratio: 1, gain: 1.0 },
+    { ratio: 2, gain: 0.25 },
+    { ratio: 3, gain: 0.08 },
+    { ratio: 4, gain: 0.03 },
+  ];
+
+  const oscillators = harmonics.map((h) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq * h.ratio, now);
+    gain.gain.setValueAtTime(h.gain * 0.5, now);
+    osc.connect(gain);
+    gain.connect(master);
+    osc.start(now);
+    return osc;
+  });
+
+  droneState = { semitoneOffset, rootKey, oscillators, master, ctx };
   return true;
 }
 
-export function isLooping() {
-  return loopState !== null;
+export function isDroning() {
+  return droneState !== null;
 }
 
-export function stopLoop() {
-  if (loopState) {
-    loopState.stop = true;
-    loopState = null;
-  }
+export function stopDrone() {
+  if (!droneState) return;
+  const { oscillators, master, ctx } = droneState;
+  const now = ctx.currentTime;
+  master.gain.linearRampToValueAtTime(0, now + 0.15);
+  oscillators.forEach((osc) => osc.stop(now + 0.2));
+  droneState = null;
 }

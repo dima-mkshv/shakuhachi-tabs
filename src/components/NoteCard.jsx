@@ -3,7 +3,7 @@ import FingeringDiagram from './FingeringDiagram';
 import { useAppContext, useTranslation } from '../context/AppContext';
 import { getNoteWithOctave } from '../utils/transpose';
 import { getFingeringForHoles, getTechniqueForHoles } from '../data/notes';
-import { playNote, toggleLoop, stopLoop } from '../utils/audio';
+import { playNote, toggleDrone, stopDrone } from '../utils/audio';
 
 const TECHNIQUE_KEYS = {
   normal: 'techniqueNormal',
@@ -15,11 +15,11 @@ const TECHNIQUE_KEYS = {
 export default function NoteCard({ note, compact = false }) {
   const { rootKey, holeCount } = useAppContext();
   const t = useTranslation();
-  const [looping, setLooping] = useState(false);
+  const [droning, setDroning] = useState(false);
 
   useEffect(() => {
-    return () => { if (looping) stopLoop(); };
-  }, [looping]);
+    return () => { if (droning) stopDrone(); };
+  }, [droning]);
 
   const noteInfo = getNoteWithOctave(note.semitoneOffset, rootKey, 4);
   const westernName = noteInfo.display;
@@ -29,17 +29,15 @@ export default function NoteCard({ note, compact = false }) {
 
   const handlePlay = (e) => {
     e.stopPropagation();
-    if (looping) { stopLoop(); setLooping(false); }
+    if (droning) { stopDrone(); setDroning(false); }
     playNote(note.semitoneOffset, rootKey);
   };
 
-  const handleLoop = (e) => {
+  const handleDrone = (e) => {
     e.stopPropagation();
-    const isNowLooping = toggleLoop(note.semitoneOffset, rootKey);
-    setLooping(isNowLooping);
+    const isNowDroning = toggleDrone(note.semitoneOffset, rootKey);
+    setDroning(isNowDroning);
   };
-
-  const showAltFingerings = holeCount === 5 && note.altFingerings && note.altFingerings.length > 0;
 
   if (compact) {
     return (
@@ -56,23 +54,13 @@ export default function NoteCard({ note, compact = false }) {
     <div className="note-card">
       <div className="note-card__western">{westernName}</div>
       <FingeringDiagram fingering={fingering} />
-      {showAltFingerings && (
-        <div className="note-card__alts">
-          {note.altFingerings.map((alt, i) => (
-            <div key={i} className="note-card__alt">
-              <span className="note-card__alt-label">alt</span>
-              <FingeringDiagram fingering={alt.fingering} compact />
-            </div>
-          ))}
-        </div>
-      )}
       <div className="note-card__katakana">{note.katakana}</div>
       <div className="note-card__romaji">{note.romaji}</div>
       <div className="note-card__technique">{techniqueLabel}</div>
       <div className="note-card__buttons">
         <button className="note-card__play" onClick={handlePlay} aria-label="Play note">▶</button>
-        <button className={`note-card__play ${looping ? 'note-card__play--active' : ''}`} onClick={handleLoop} aria-label="Loop note">
-          {looping ? '■' : '⟳'}
+        <button className={`note-card__play ${droning ? 'note-card__play--active' : ''}`} onClick={handleDrone} aria-label="Drone note">
+          {droning ? '■' : '▶▶'}
         </button>
       </div>
     </div>
