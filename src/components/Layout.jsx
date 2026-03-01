@@ -72,7 +72,6 @@ export default function Layout() {
           <NavItem to="/exercises" label={t('navExercises')} />
           <NavItem to="/ornaments" label={t('navOrnaments')} />
           <NavItem to="/songs" label={t('navSongs')} />
-          <NavItem to="/tuner" label={t('navTuner')} />
           <NavItem to="/techniques" label={t('navTechniques')} />
           <NavItem to="/glossary" label={t('navGlossary')} />
         </nav>

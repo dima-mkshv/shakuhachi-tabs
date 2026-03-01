@@ -425,6 +425,14 @@ body {
   border-bottom-color: var(--black);
 }
 
+.chart-intro {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 28px;
+}
+
 /* === Chart table === */
 .chart-section {
   margin-bottom: 40px;
@@ -648,6 +656,29 @@ body {
   margin-bottom: 12px;
 }
 
+.glossary-toc {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.glossary-toc__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.glossary-toc__link:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
 .glossary-intro {
   font-size: 14px;
   color: var(--gray-500);
@@ -782,86 +813,7 @@ body {
   line-height: 1.8;
 }
 
-/* === Tuner === */
-.page-tuner h2 {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.tuner-intro {
-  font-size: 14px;
-  color: var(--gray-500);
-  line-height: 1.7;
-  max-width: 800px;
-  margin-bottom: 32px;
-}
-
-.tuner-section-title {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  margin: 24px 0 12px;
-}
-
-.tuner-grid {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.tuner-note {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 8px;
-  border: 2px solid var(--gray-300);
-  background: var(--white);
-  color: var(--black);
-  cursor: pointer;
-  min-width: 70px;
-  transition: border-color 0.15s, background 0.15s;
-  border-radius: 2px;
-}
-
-.tuner-note:hover {
-  border-color: var(--black);
-}
-
-.tuner-note--active {
-  border-color: var(--black);
-  background: var(--black);
-  color: var(--white);
-}
-
-.tuner-note--active .tuner-note__romaji,
-.tuner-note--active .tuner-note__western {
-  color: var(--white);
-}
-
-.tuner-note__western {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.tuner-note__katakana {
-  font-family: var(--font-jp);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.tuner-note__romaji {
-  font-size: 10px;
-  color: var(--gray-500);
-}
-
-/* === Exercises / Ornaments === */
+/* === Exercises / Ornaments / Songs === */
 .page-exercises h2,
 .page-ornaments h2,
 .page-songs h2 {
@@ -883,34 +835,73 @@ body {
 }
 
 .exercises-list,
-.ornaments-list,
-.songs-list {
+.ornaments-list {
   display: flex;
   flex-direction: column;
   gap: 32px;
   max-width: 900px;
 }
 
+.songs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+}
+
 .exercise-card,
-.ornament-card,
-.song-card {
+.ornament-card {
   border: 1px solid var(--gray-300);
   padding: 20px;
   transition: border-color 0.15s;
 }
 
+.song-card {
+  border: 1px solid var(--gray-300);
+  transition: border-color 0.15s;
+}
+
+.song-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+}
+
+.song-card__header:hover {
+  background: var(--gray-100);
+}
+
+.song-card__toggle {
+  font-size: 16px;
+  color: var(--gray-500);
+}
+
+.song-card--open {
+  border-color: var(--black);
+}
+
+.song-detail {
+  padding: 0 20px 20px;
+}
+
 .exercise-card:hover,
-.ornament-card:hover,
-.song-card:hover {
+.ornament-card:hover {
   border-color: var(--black);
 }
 
 .exercise-card__title,
-.ornament-card__title,
-.song-card__title {
+.ornament-card__title {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 8px;
+}
+
+.song-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0;
 }
 
 .exercise-card__jp,
@@ -1028,6 +1019,7 @@ body {
   align-items: stretch;
   min-height: 70px;
   flex: 1;
+  flex-wrap: wrap;
 }
 
 .seq-hybrid__note {

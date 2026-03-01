@@ -4,7 +4,7 @@ export const TRANSLATIONS = {
     siteSubtitle: '尺八',
     navHome: 'Home',
     navNotes: 'Notes',
-    navChart: 'Fingering Chart',
+    navChart: 'Tuner',
     navScales: 'Scales',
     navTechniques: 'Techniques',
     navGlossary: 'Glossary',
@@ -45,7 +45,8 @@ export const TRANSLATIONS = {
     scalesDescending: 'Descending (7 notes)',
     scalesAscDescNote: 'Scales marked with ↑↓ have different auxiliary passing tones when ascending vs descending. This comes from Koizumi\'s tetrachord theory: passing tones are pulled sharp going up and flat going down.',
     notesTitle: 'All Notes',
-    chartTitle: 'Complete Fingering Chart',
+    chartTitle: 'Tuner & Fingering Chart',
+    chartIntro: 'Full fingering reference with playback. ▶ plays the note once, ▶▶ plays a continuous drone for tuning.',
 
     noteColumn: 'Note',
     japaneseColumn: 'Japanese',
@@ -77,13 +78,9 @@ export const TRANSLATIONS = {
     glossaryIntro: 'Key terms and concepts in shakuhachi music and practice.',
     playNote: 'Play note',
 
-    navTuner: 'Tuner',
     navExercises: 'Exercises',
     navOrnaments: 'Ornaments',
     navSongs: 'Songs',
-
-    tunerTitle: 'Tuner / Drone',
-    tunerIntro: 'Click a note to start a continuous drone tone for tuning and pitch reference. Click again to stop.',
 
     exercisesTitle: 'Exercises',
     exercisesIntro: 'Fundamental practice routines for building shakuhachi technique. Start with Ro-buki and work your way through. Click ▶ to hear the exercise.',
@@ -103,7 +100,7 @@ export const TRANSLATIONS = {
     siteSubtitle: '尺八',
     navHome: 'Главная',
     navNotes: 'Ноты',
-    navChart: 'Аппликатура',
+    navChart: 'Тюнер',
     navScales: 'Гаммы',
     navTechniques: 'Техники',
     navGlossary: 'Словарь',
@@ -144,7 +141,8 @@ export const TRANSLATIONS = {
     scalesDescending: 'Нисходящая (7 нот)',
     scalesAscDescNote: 'Гаммы, отмеченные ↑↓, имеют разные проходящие тоны при движении вверх и вниз. Это из теории тетрахордов Коидзуми: проходящие тоны повышаются при восхождении и понижаются при нисхождении.',
     notesTitle: 'Все ноты',
-    chartTitle: 'Полная таблица аппликатуры',
+    chartTitle: 'Тюнер и аппликатура',
+    chartIntro: 'Полная таблица аппликатуры с воспроизведением. ▶ играет ноту один раз, ▶▶ включает непрерывный дрон для настройки.',
 
     noteColumn: 'Нота',
     japaneseColumn: 'Японское',
@@ -176,13 +174,9 @@ export const TRANSLATIONS = {
     glossaryIntro: 'Основные термины и понятия музыки и практики сякухати.',
     playNote: 'Воспроизвести ноту',
 
-    navTuner: 'Тюнер',
     navExercises: 'Упражнения',
     navOrnaments: 'Орнаменты',
     navSongs: 'Пьесы',
-
-    tunerTitle: 'Тюнер / Дрон',
-    tunerIntro: 'Нажмите на ноту, чтобы включить непрерывный тон для настройки и проверки высоты. Нажмите ещё раз, чтобы остановить.',
 
     exercisesTitle: 'Упражнения',
     exercisesIntro: 'Фундаментальные упражнения для развития техники сякухати. Начните с Ро-буки. Нажмите ▶, чтобы услышать упражнение.',

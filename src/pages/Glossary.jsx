@@ -12,11 +12,23 @@ export default function Glossary() {
       <h2>{t('glossaryTitle')}</h2>
       <p className="glossary-intro">{t('glossaryIntro')}</p>
 
+      <nav className="glossary-toc">
+        {CATEGORY_ORDER.map((catId) => {
+          const terms = GLOSSARY.filter((g) => g.category === catId);
+          if (terms.length === 0) return null;
+          return (
+            <a key={catId} href={`#glossary-${catId}`} className="glossary-toc__link">
+              {GLOSSARY_CATEGORIES[catId][lang]}
+            </a>
+          );
+        })}
+      </nav>
+
       {CATEGORY_ORDER.map((catId) => {
         const terms = GLOSSARY.filter((g) => g.category === catId);
         if (terms.length === 0) return null;
         return (
-          <section key={catId} className="glossary-section">
+          <section key={catId} id={`glossary-${catId}`} className="glossary-section">
             <h3 className="glossary-section__title">{GLOSSARY_CATEGORIES[catId][lang]}</h3>
             <dl className="glossary-list">
               {terms.map((entry) => (
